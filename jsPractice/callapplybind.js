@@ -1,5 +1,5 @@
 const fname = {
-    firstname: "Arpit",
+    firstname: "Ankit",
     lastname: "Garg"
 }
 
