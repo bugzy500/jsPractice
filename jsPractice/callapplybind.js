@@ -14,6 +14,7 @@ let fullname =  function(a){
 // }
 
 //console.log(person.fullname.call(fname));
+
 console.log(fullname.call(fname,"ok"))
 
 
