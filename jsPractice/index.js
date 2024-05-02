@@ -37,3 +37,21 @@ function throttle(fn, delay){
         },delay)
     }
 }
+
+function downloadFile(url, fileName) {
+    fetch(url, { method: 'get', referrerPolicy: 'no-referrer'})
+      .then(res => {
+        console.log(res)
+        return res.blob()})
+      .then(res => {
+        const aElement = document.createElement('a');
+        aElement.setAttribute('download', fileName);
+        const href = URL.createObjectURL(res);
+        aElement.href = href;
+        aElement.setAttribute('target', '_blank');
+        aElement.click();
+        URL.revokeObjectURL(href);
+      });
+  };
+
+downloadFile('http://10.134.82.241/quantum/template/api/v2.0/download','config_summary.yaml')
