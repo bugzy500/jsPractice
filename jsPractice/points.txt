@@ -1,0 +1,104 @@
+Lifecycle hooks
+Routing, Guards, Resolvers
+http
+decorators
+building blocks of angular
+dependency injection, gow angular uses it
+async pipes, how to use it
+directives
+parentheses significance in front of decorators
+ng-container, ng-template, ng-content
+ViewChild ViewChildren
+ngClass
+communication between components
+parent child components
+observables, subject, of, from
+rxjs
+scope object in Angular, which is a built-in object.
+in-depth study on services
+Lazy loading modules
+How are feature/shared modules added to project
+Reactive, Template-Driven forms
+custom pipes
+CORS
+garbage collection, memory release > ngOndestroy > called when component is removed from the DOM
+
+scss/sass
+
+Advantages:
+Typescript support
+Architecture > Model View
+Built-in features> Routing, Forms, http, change detection 
+Angular Life-cylcle hooks
+Dependency Injection
+powerful CLI
+
+Disadvantages:
+Complexity
+Bundle Size
+Performance little inferior to ReactJS
+
+Change Detection:
+Dependency Injection
+
+
+Q:If you provide a service in two components‘ “providers” section of @Component decorator, how many
+instances of service shall get created?
+Requirement: Foundational Angular knowledge
+
+Answer: 2
+
+
+https://www.edureka.co/blog/interview-questions/top-angularjs-interview-questions-2016/amp/
+
+https://www.devteam.space/hiring-interview-tips/35-angular-interview-questions-and-answers/
+
+https://dev.to/mahamatmans/array-cheatsheet-javascript-3mci
+
+https://dev.to/__junaidshah/interview-questions-for-js-4a4m
+
+callback function
+es6 what's new
+Javascript
+JS TS differences
+session management
+local storage
+hoisting
+currying
+call apply bind
+slice, splice, reduce, map, foreach, substring, filter
+async await
+then catch
+promises, promise.all, promise.race
+data structures
+maps, sets
+array sort without .sort
+higher order functions
+pop, push, shift, unshift
+first class citizens
+
+- What is Prototype?
+- What is Prototypal Inheritance?
+- What is Prototype Chain?
+- Why we call it __proto__ ?
+- What is inhertance in Javascript?
+
+    "workbench.colorCustomizations": {
+        "list.inactiveSelectionBackground": "#424243",
+        "sideBar.background": "#272626",
+        "sideBar.foreground": "#eeeeee",
+        "editor.background": "#151515",
+        "editor.foreground": "#d0d0d0",
+        "sideBarSectionHeader.background": "#0b0913",
+        "sideBarSectionHeader.foreground": "#ffffff",
+        "activityBar.border": "#3a3a3a",
+        "statusBar.background": "#212121",
+        "scrollbarSlider.activeBackground": "#494949",
+        "scrollbarSlider.hoverBackground": "#2c2c2c",
+        "badge.background": "#242424",
+}
+
+
+https://dev.to/ifrah/5-underrated-resources-to-learn-git-and-github-4edi
+
+

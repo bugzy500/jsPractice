@@ -3,6 +3,9 @@ let numarr = [11,22,36,7,2]
 
 let boolArr = [true, false, true, false, false]
 
+// numarr = numarr.map((element) => {
+//     return element*2
+// }) 
 
 numarr.forEach((element,index) => {
     numarr[index] = element*2
