@@ -1,13 +1,24 @@
-function getFirstElement<ElementType>(arr: ElementType[]){
+function getFirstElement<ElementType>(arr: ElementType[]): ElementType{
+    return arr[0]
+}
+
+const getFirst = <T>(arr: T[]) : T => {
     return arr[0]
 }
 
 const nums = [1,2,3]
 
+const strs = ['A', 'B', 'C']
+
 const firstNum = getFirstElement(nums)
 const altFirstNum = getFirstElement<number>(nums)
 
-console.log(firstNum, altFirstNum)
+const altFirstStr = getFirstElement(strs)
+const firstStr = getFirstElement<string>(strs)
+
+const test = getFirst(nums)
+
+console.log(firstNum, altFirstNum, test)
 
 
 type ApiResponse<Data = Status> = {
