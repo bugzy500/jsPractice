@@ -8,12 +8,12 @@ function getData(){
 
 function deBounce(fn, delay) {
     let timer;
-    return function (){
+    return function (...args){
         let context = this
-        args = arguments
+        console.log(context)
         clearTimeout(timer)
         timer = setTimeout(()=>{
-            fn.apply(context,args)
+            fn.apply(context,...args)
         },delay)
     }
 }
@@ -54,4 +54,4 @@ function downloadFile(url, fileName) {
       });
   };
 
-downloadFile('http://10.134.82.241/quantum/template/api/v2.0/download','config_summary.yaml')
+//downloadFile('http://10.134.82.241/quantum/template/api/v2.0/download','config_summary.yaml')

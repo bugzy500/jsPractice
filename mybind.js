@@ -21,6 +21,6 @@ Function.prototype.mybind = function(...args) {
     }
 }
 
-let user3 = user.mybind(obj1, 'UL')
+let user3 = user.mybind(obj1, 'UL') // forms closure with lexical env. need to assign this to obj because this inside returned fn will point to global
 
 user3('Jaipur')
