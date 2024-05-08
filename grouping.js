@@ -38,3 +38,7 @@ const output = objArr.reduce((acc, cv) => {
 }, {})
 
 console.log(output)
+
+const output1 = Object.groupBy(objArr, sample => sample.key)
+
+console.log(output1)

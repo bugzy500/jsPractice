@@ -8,9 +8,9 @@ function getData(){
 
 function deBounce(fn, delay) {
     let timer;
+    let context = this
+    console.log(context)
     return function (...args){
-        let context = this
-        console.log(context)
         clearTimeout(timer)
         timer = setTimeout(()=>{
             fn.apply(context,...args)

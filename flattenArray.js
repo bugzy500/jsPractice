@@ -13,4 +13,7 @@ function flattenArray(arr){
     return res
 }
 
-console.log(flattenArray(a))
+//same thing can be achieved by Array.flat(levels) // max > Number.POSITIVE_INFINITY
+const output = a.flat(Number.POSITIVE_INFINITY)
+
+console.log(flattenArray(a), output)

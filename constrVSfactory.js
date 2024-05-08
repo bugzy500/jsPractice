@@ -11,7 +11,7 @@ console.log(me)
 // constructor functions
 
 function Person(name){
-    this.name = name,
+    this.name = name, // name can be skipped actually.. if parameter and property name is same, it gets created automatically on instantiation
     this.talk = function(){
         return `${this.name + ' talking'}`
     }
