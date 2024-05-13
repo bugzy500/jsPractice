@@ -11,7 +11,7 @@ function deBounce(fn, delay) {
     let context = this
     console.log(context)
     return function (...args){
-        clearTimeout(timer)
+        clearTimeout(timer) // on first call timer will be undefined.. and we register a timeout with fn call for delay ms
         timer = setTimeout(()=>{
             fn.apply(context,...args)
         },delay)
