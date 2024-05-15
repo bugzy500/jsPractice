@@ -3,7 +3,7 @@ Routing, Guards, Resolvers
 http
 decorators
 building blocks of angular
-dependency injection, gow angular uses it
+dependency injection, how angular uses it
 async pipes, how to use it
 directives
 parentheses significance in front of decorators

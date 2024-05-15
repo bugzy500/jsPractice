@@ -1,0 +1,37 @@
+interface FoodNode {
+  name: string;
+  children?: FoodNode[];
+}
+
+const array = [
+  'Application/Calendar',
+  'Application/Chrome',
+  'Application/Webstrom',
+  'Application/Photoshop',
+  'Application/firefox',
+  'Documents/Material-UI/src/index.js',
+  'Documents/Material-UI/src/tree-view.js'
+];
+
+
+//generate tree data from array
+const TREE_DATA: FoodNode[] = [
+  {
+    name: 'Application',
+    children: [{ name: 'Calendar' }, { name: 'Chrome' }, { name: 'Webstrom' }]
+  },
+  {
+    name: 'Documents',
+    children: [
+      {
+        name: 'Material-UI',
+        children: [
+          {
+            name: 'src',
+            children: [{ name: 'index.js' }, { name: 'tree-view.js' }]
+          }
+        ]
+      }
+    ]
+  }
+];
