@@ -1,18 +1,28 @@
 function isDeepEqual(object1, object2) {
-    const keys1 = Object.keys(object1);
-    const keys2 = Object.keys(object2);
 
-    if (keys1.length !== keys2.length) {
-        return false;
-    }
+    if (object1 === object2)
+        return true
 
-    for (const key of keys1) {
-        if (!genericIsEqual(object1[key], object2[key])) {
+    if (typeof object1 === 'object' && typeof object2 === 'object' && object1 !== null && object2 !== null) {
+        const keys1 = Object.keys(object1);
+        const keys2 = Object.keys(object2);
+
+        if (keys1.length !== keys2.length) {
             return false;
         }
+
+        for (const key of keys1) {
+            if (!genericIsEqual(object1[key], object2[key])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    return true;
+    return false
+
+
 }
 
 /**
@@ -83,7 +93,7 @@ function isDateDeepEqual(date1, date2) {
     return date1.getTime() === date2.getTime();
 }
 
-const obj1 = [1,2,3,5]
-const obj2 = [1,3,2,5]
+const obj1 = { a: 2, b: [1] }
+const obj2 = { b: [1], a: null }
 
 console.log(isDeepEqual(obj1, obj2))

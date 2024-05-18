@@ -8,12 +8,12 @@ function memoize(func) {
   function inner(...args) {
     console.log('passed args', args)
 
-    if(!isDeepEqual(current, args))
+    if (!areDeeplyEqual(current, args))
       cacheArr = ['', '']
 
     current = args
-    if(!isDeepEqual(cacheArr[0], current)){
-      cacheArr[0] = current 
+    if (!areDeeplyEqual(cacheArr[0], current)) {
+      cacheArr[0] = current
       cacheArr[1] = func.call(null, ...args)
       console.log('not cache', cacheArr[1])
       return cacheArr[1]
@@ -31,6 +31,41 @@ function memoize(func) {
   return inner
 }
 
+
+function areDeeplyEqual(obj1, obj2) {
+  if (obj1 === obj2) return true;
+
+  if (Array.isArray(obj1) && Array.isArray(obj2)) {
+
+    if (obj1.length !== obj2.length) return false;
+
+    return obj1.every((elem, index) => {
+      return areDeeplyEqual(elem, obj2[index]);
+    })
+
+
+  }
+
+  if (typeof obj1 === "object" && typeof obj2 === "object" && obj1 !== null && obj2 !== null) {
+    if (Array.isArray(obj1) || Array.isArray(obj2)) return false;
+
+    const keys1 = Object.keys(obj1)
+    const keys2 = Object.keys(obj2)
+
+    if (keys1.length !== keys2.length || !keys1.every(key => keys2.includes(key))) return false;
+
+    for (let key in obj1) {
+      //console.log(obj1[key], obj2[key])
+      let isEqual = areDeeplyEqual(obj1[key], obj2[key])
+      if (!isEqual) { return false; }
+    }
+
+    return true;
+
+  }
+
+  return false;
+}
 
 function isDeepEqual(object1, object2) {
   const keys1 = Object.keys(object1);
@@ -128,7 +163,7 @@ function isDateDeepEqual(date1, date2) {
 
 function square(x) {
   console.log(`computing ${x} * ${x}`);
-  return x * x; 
+  return x * x;
 }
 
 const memoizedSquare = memoize(square);
@@ -169,12 +204,12 @@ memoizedSum(2, 1, 3, 4); // from computation
 
 function compare(obj) {
   console.log(`comparing ${obj.a} and ${obj.b}`);
-  return obj.a > obj.b; 
+  return obj.a > obj.b;
 }
 
 const memoizedCompare = memoize(compare);
 
-memoizedCompare({a: 1, b: 2}); // from computation
-memoizedCompare({a: 1, b: 2}); // from cache
-memoizedCompare({b: 2, a: 1}); // from cache
-memoizedCompare({b: 3, a: 1}); // from computation
+memoizedCompare({ a: 1, b: 2 }); // from computation
+memoizedCompare({ a: 1, b: 2 }); // from cache
+memoizedCompare({ b: 2, a: 1 }); // from cache
+memoizedCompare({ b: 3, a: 1 }); // from computation
