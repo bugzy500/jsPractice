@@ -37,11 +37,6 @@ function createDirectory(dirArray){
   return dirMap
 }
 
-function creator(entry: string){
-  let res = ''
-  return res
-}
-
 const dirRes = createDirectory(dirArr)
 
 
