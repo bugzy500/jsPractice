@@ -17,4 +17,4 @@ function checkSettlesInTime(promise, maxTime) {
     })
 }
 
-//console.log(check(promise1))
+checkSettlesInTime(promise1,1000).then(res => console.log(res))

@@ -24,5 +24,5 @@ promiseOrder([
     wait(1000),
     wait(50)
 ]).then((order) => {
-    console.log(order); // [1, 2, 0]
+    console.log(order); // [2,0,1]
 });
