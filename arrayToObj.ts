@@ -13,6 +13,7 @@ const dirArr = [
   'Documents/Material-UI/src/tree-view.js'
 ];
 
+
 function createDirectory(dirArray){
   const dirMap: FoodNode[] = []
 
@@ -38,18 +39,6 @@ function createDirectory(dirArray){
 }
 
 const dirRes = createDirectory(dirArr)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
