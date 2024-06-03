@@ -1,0 +1,1 @@
+You are given a Binary Search Tree (BST) and a target value ‘K’. Your task is to check if there exist two unique elements in the given BST such that their sum is equal to the given target ‘K’.
