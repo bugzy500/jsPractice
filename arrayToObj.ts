@@ -14,35 +14,80 @@ const dirArr = [
 ];
 
 
-function createDirectory(dirArray){
+//generate TREE_DATA from dirArr
+function createDirectory(dirArray) {
   const dirMap: FoodNode[] = []
-
+  let parent = '';
+  
   dirArray.forEach((entry: string) => {
     let temp = entry.indexOf('/')
-    let name = entry.slice(0,temp)
-    let value = entry.slice(temp + 1, entry.length)
-
+    let dir = entry.slice(0, temp)
+    let subDir = entry.slice(temp + 1, entry.length)
     let children: FoodNode[] = []
 
-    if(!value.includes('/'))
-      children.push({name: value})
+    if (dir === parent)
+      children.push({ name: subDir })
+    else {
+      dirMap.push({
+        name: dir,
+        children: []
+      })
+      parent = dir
+    }
 
-    dirMap.push({
-      name: name,
-      children: [{name: value}]
-    })
+    if (!subDir.includes('/')) {
+      if(children.length === 0)
+        children = [{ name: subDir }]
 
-    console.log(name, value)
+      dirMap.find(obj => obj.name === parent).children.push({name: subDir})
+    }
+    else {
+      console.log('sending', subDir)
+      dirMap.find(obj => obj.name === parent).children = createDirectory([subDir])
+    }
+
+    console.log('debug', dir, subDir, children, dirMap)
   })
 
   return dirMap
 }
 
-const dirRes = createDirectory(dirArr)
+function buildTree(dirArr: string[]): FoodNode[] {
+  const root: FoodNode[] = [];
 
+  dirArr.forEach(path => {
+    const parts = path.split('/');
+    let currentLevel = root;
 
+    parts.forEach((part, index) => {
+      let existingNode = currentLevel.find(node => node.name === part);
 
-//generate tree data from dirArr
+      if (!existingNode) {
+        existingNode = { name: part };
+        currentLevel.push(existingNode);
+      }
+
+      if (!existingNode.children) {
+        existingNode.children = [];
+      }
+
+      if (index < parts.length - 1) {
+        currentLevel = existingNode.children; // currentLevel = [{name: 'Calendar'}] // existingNode = {name: 'Calendar', children: []}
+      }
+    });
+  });
+
+  return root;
+}
+
+const DATA = buildTree(dirArr);
+
+console.log(JSON.stringify(DATA));
+
+// const dirRes = createDirectory(dirArr)
+
+// console.log(dirRes)
+
 
 //also should try creating dirArray from TREE_DATA
 const TREE_DATA: FoodNode[] = [

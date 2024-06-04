@@ -102,3 +102,13 @@ first class citizens
 https://dev.to/ifrah/5-underrated-resources-to-learn-git-and-github-4edi
 
 
+javascript30.com
+
+
+React
+useState: Hold/update values + re-render.
+useRef: Hold values, no re-render.
+useEffect: Execute side effects after render.
+useReducer: useState with reducers.
+useMemo: Cache values between renders.
+useCallback: Retain function identities.
