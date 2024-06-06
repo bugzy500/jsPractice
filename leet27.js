@@ -20,6 +20,18 @@ var removeElement = function(nums, val) {
     return k
 };
 
+var removeElement2 = function(nums, val) {
+    let index = 0
+    for(let i=0; i< nums.length; i++){
+        if(nums[i] !== val){
+            nums[index] = nums[i]
+            index++
+        }
+    }
+
+    return index
+};
+
 const nums = [3,2,2,3]
 let val = 3
 
