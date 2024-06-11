@@ -31,11 +31,9 @@ function twoSum(arr, target){
     arr.forEach((num ,index) => {
         let find = target - num
         if(hashMap.has(find)){
-            console.log('here')
             res2.push(index, hashMap.get(find))
         }
         else {
-            console.log('here2')
             hashMap.set(num, index)
         }
     })

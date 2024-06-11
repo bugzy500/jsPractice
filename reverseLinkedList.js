@@ -37,7 +37,21 @@ function reverseLinkedList(linkL){
 
 }
 
-reverseLinkedList(ll)
+function reverseLinked(linkedList){
+
+    let prev = null
+    let current = linkedList
+    while(current !== null){
+        const next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    }
+
+    console.log(prev)
+}
+
+
 
 const obj2 = {
     "value": 1,
@@ -52,3 +66,4 @@ const obj2 = {
         }
     }
 }
+reverseLinked(obj2)

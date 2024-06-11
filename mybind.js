@@ -19,6 +19,10 @@ Function.prototype.mybind = function(...args) {
         //console.log(this) // global object
         obj.apply(args[0], [...params, ...args2])
     }
+    // return (...args2) => {
+    //     console.log('in arrow', this) // function user
+    //     this.apply(args[0], [...params, ...args2])
+    // }
 }
 
 let user3 = user.mybind(obj1, 'UL') // forms closure with lexical env. need to assign this to obj because this inside returned fn will point to global
