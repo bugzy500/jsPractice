@@ -1,4 +1,4 @@
-var minSubArrayLen = function(target, nums) {
+var minSubArrayLen2 = function(target, nums) {
     let minLength = Infinity; // Initialize the minimum length as positive infinity
 
     let sum = 0; // Variable to track the current sum
@@ -18,6 +18,25 @@ var minSubArrayLen = function(target, nums) {
     }
     return minLength === Infinity ? 0 : minLength; // Return 0 if no subarray is found
 };
+
+var minSubArrayLen = function(target, nums) {
+    let minLength = Infinity
+    let sum = 0
+    let j = 0
+
+    for(let i = 0; i < nums.length; i++){
+        sum += nums[i]
+
+        while (sum >= target){
+            minLength = Math.min(minLength, i - j + 1)
+            sum = sum - nums[j]
+            j++
+        }
+    }
+
+    return minLength === Infinity ? 0 : minLength;
+}
+
 
 const nums = [2,3,1,2,4,3]
 
