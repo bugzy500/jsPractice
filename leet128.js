@@ -1,3 +1,5 @@
+//longest consecutive ranges
+
 /**
  * @param {number[]} nums
  * @return {number}
