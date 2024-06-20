@@ -11,22 +11,26 @@ function _Node(val, next, random) {
  * @return {_Node}
  */
 var copyRandomList = function(head) {
-    if (!head) return null;
-    
-    const oldToNew = new Map();
-    
-    let curr = head;
-    while (curr) {
-        oldToNew.set(curr, new Node(curr.val));
-        curr = curr.next;
-    }
-    
-    curr = head;
-    while (curr) {
-        oldToNew.get(curr).next = oldToNew.get(curr.next) || null;
-        oldToNew.get(curr).random = oldToNew.get(curr.random) || null;
-        curr = curr.next;
-    }
-    
-    return oldToNew.get(head);
+   if(!head)
+    return null
+
+   const myMap = new Map()
+
+   let current = head
+
+   while(current){
+        myMap.set(current, new Node(current.val))
+        current = current.next
+   }
+
+   current = head
+
+   while(current){
+        myMap.get(current).next = myMap.get(current.next) || null
+        myMap.get(current).random = myMap.get(current.random) || null
+        current = current.next
+   }
+
+   return myMap.get(head)
+
 };
