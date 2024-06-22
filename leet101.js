@@ -25,10 +25,9 @@ var isSymmetric = function(root) {
             return false
 
         stack1.push(temp1.left)
-        
         stack1.push(temp1.right)
-        stack2.push(temp2.right)
         
+        stack2.push(temp2.right)
         stack2.push(temp2.left)
     }
 
